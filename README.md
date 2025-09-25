@@ -56,17 +56,12 @@ Known plaintext: dễ suy a và b nếu biết một cặp plaintext–ciphertex
 # C++ (encrypt/decrypt)
 
 # HTML+JS (giao diện)
-
+# <img width="1145" height="532" alt="Screenshot 2025-09-25 224032" src="https://github.com/user-attachments/assets/4a852f37-48ea-4dbb-8a5b-eaea55a0c85f" />
 # 3. Permutation cipher (Transposition / Hoán vị)
-
 Ở đây mình hiểu là Columnar transposition (hoán vị cột) — hay chung chung: tách văn bản thành block rồi hoán vị vị trí ký tự theo một permutaion.
-
 # Tên gọi
-
 Permutation cipher / transposition cipher / Columnar transposition (mã hoán vị).
-
 # Thuật toán (columnar transposition tiêu biểu)
-
 Chọn độ dài key = n; key là một hoán vị các cột (ví dụ 4 1 3 2).
 
 Viết plaintext theo hàng vào ma trận với n cột (bổ sung ký tự padding nếu cần).
