@@ -25,7 +25,7 @@ Frequency analysis: đối với văn bản đủ dài, chữ có tần suất c
 # C++ (đơn giản)
 
 # HTML+CSS+JS (giao diện nhỏ)
-
+# <img width="584" height="341" alt="image" src="https://github.com/user-attachments/assets/3ddfe242-e5d1-48ba-b1c1-08fe82c9bbda" />
 # 2. Affine cipher (Mã Affine)
 # Tên gọi
 
