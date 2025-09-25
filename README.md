@@ -92,7 +92,7 @@ Known-plaintext: nếu biết mẩu plaintext, dễ suy key.
 # C++ (columnar transposition - encrypt/decrypt)
 
 # HTML+JS (đơn giản) 
-
+# <img width="583" height="270" alt="image" src="https://github.com/user-attachments/assets/2015f077-1a11-4467-ac65-8b026fb440f3" />
 # 4. Vigenère cipher
 # Tên gọi
 
@@ -123,7 +123,7 @@ Modern heuristic: hill-climbing với score ngôn ngữ.
 # C++ (encrypt/decrypt)
 
 # HTML+JS
-
+# <img width="581" height="242" alt="image" src="https://github.com/user-attachments/assets/5a5e3f9e-914b-44bc-81a8-c4810a116bea" />
 # 5. Playfair cipher
 # Tên gọi
 
@@ -166,4 +166,5 @@ Brute-force: không khả thi nếu không giới hạn kiểu khoá.
 # C++ (Playfair basic)
 
 # HTML+JS (Playfair)
+# <img width="677" height="296" alt="image" src="https://github.com/user-attachments/assets/81ebd6f4-da66-4377-b039-095b0dae57ef" />
 
