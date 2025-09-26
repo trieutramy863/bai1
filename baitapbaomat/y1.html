@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Caesar Cipher</title>
+<style>
+body{font-family:Arial;max-width:700px;margin:30px auto}
+label,button{display:block;margin:8px 0}
+textarea{width:100%;height:100px}
+</style>
+</head>
+<body>
+<h2>Caesar Cipher</h2>
+<textarea id="input"></textarea>
+<label>Shift <input id="shift" type="number" value="3" min="0" max="25"></label>
+<button onclick="encrypt()">Encrypt</button>
+<button onclick="decrypt()">Decrypt</button>
+<label>Output</label>
+<textarea id="output" readonly></textarea>
+
+<script>
+function caesar(s,t,dir=1){
+  t = ((t%26)+26)%26;
+  let out='';
+  for(let ch of s){
+    if(ch>='A' && ch<='Z'){
+      out += String.fromCharCode((ch.charCodeAt(0)-65 + dir*t +26)%26 +65);
+    } else if(ch>='a' && ch<='z'){
+      out += String.fromCharCode((ch.charCodeAt(0)-97 + dir*t +26)%26 +97);
+    } else out+=ch;
+  }
+  return out;
+}
+function encrypt(){ 
+  document.getElementById('output').value = caesar(document.getElementById('input').value, parseInt(document.getElementById('shift').value,10), 1);
+}
+function decrypt(){
+  document.getElementById('output').value = caesar(document.getElementById('input').value, parseInt(document.getElementById('shift').value,10), -1);
+}
+</script>
+</body>
+</html>

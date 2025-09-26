@@ -1,0 +1,45 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Affine Cipher</title></head>
+<body style="font-family:Arial;max-width:700px;margin:20px">
+<h3>Affine Cipher</h3>
+<textarea id="txt" style="width:100%;height:120px"></textarea>
+<label>a (coprime with 26) <input id="a" value="5" type="number"></label>
+<label>b <input id="b" value="8" type="number"></label>
+<button onclick="doEnc()">Encrypt</button>
+<button onclick="doDec()">Decrypt</button>
+<textarea id="out" style="width:100%;height:120px" readonly></textarea>
+
+<script>
+function egcd(a,b){
+  if(b===0) return {g:a,x:1,y:0};
+  const r=egcd(b,a%b);
+  return {g:r.g, x:r.y, y: r.x - Math.floor(a/b)*r.y};
+}
+function modinv(a,m){
+  const r=egcd(a,m);
+  if(r.g!==1) return null;
+  let x=r.x % m; if(x<0) x+=m; return x;
+}
+function affine(s,a,b,dir=1){
+  if(dir===1){
+    return s.replace(/./g,ch=>{
+      const code=ch.charCodeAt(0);
+      if(code>=65 && code<=90) return String.fromCharCode((a*(code-65)+b)%26 +65);
+      if(code>=97 && code<=122) return String.fromCharCode((a*(code-97)+b)%26 +97);
+      return ch;
+    });
+  } else {
+    const inv=modinv(a,26);
+    if(inv===null) return "Invalid a (no inverse)";
+    return s.replace(/./g,ch=>{
+      const code=ch.charCodeAt(0);
+      if(code>=65 && code<=90) return String.fromCharCode((inv*((code-65)-b+26*10))%26 +65);
+      if(code>=97 && code<=122) return String.fromCharCode((inv*((code-97)-b+26*10))%26 +97);
+      return ch;
+    });
+  }
+}
+function doEnc(){ document.getElementById('out').value = affine(document.getElementById('txt').value,parseInt(document.getElementById('a').value,10),parseInt(document.getElementById('b').value,10),1);}
+function doDec(){ document.getElementById('out').value = affine(document.getElementById('txt').value,parseInt(document.getElementById('a').value,10),parseInt(document.getElementById('b').value,10),-1);}
+</script>
+</body></html>

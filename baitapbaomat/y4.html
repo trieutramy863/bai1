@@ -1,0 +1,27 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Vigenère Cipher</title></head>
+<body style="font-family:Arial;max-width:700px;margin:20px">
+<h3>Vigenère Cipher</h3>
+<textarea id="pt" style="width:100%;height:100px"></textarea>
+<label>Key <input id="key" value="LEMON"></label>
+<button onclick="enc()">Encrypt</button>
+<button onclick="dec()">Decrypt</button>
+<textarea id="out" style="width:100%;height:100px" readonly></textarea>
+<script>
+function prepare(s){ return s.toUpperCase().replace(/[^A-Z]/g,''); }
+function vigenere(s,key,dir=1){
+  s = prepare(s); key = prepare(key);
+  if(key.length===0) return s;
+  let out='';
+  for(let i=0;i<s.length;i++){
+    const si = s.charCodeAt(i)-65;
+    const ki = key.charCodeAt(i % key.length)-65;
+    if(dir===1) out += String.fromCharCode((si + ki) % 26 +65);
+    else out += String.fromCharCode((si - ki +26) % 26 +65);
+  }
+  return out;
+}
+function enc(){ document.getElementById('out').value = vigenere(document.getElementById('pt').value, document.getElementById('key').value,1); }
+function dec(){ document.getElementById('out').value = vigenere(document.getElementById('pt').value, document.getElementById('key').value,-1); }
+</script>
+</body></html>

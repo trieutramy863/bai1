@@ -1,0 +1,78 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Playfair</title></head>
+<body style="font-family:Arial;max-width:800px;margin:20px">
+<h3>Playfair Cipher</h3>
+<label>Key <input id="key" value="MONARCHY" style="width:200px"></label>
+<textarea id="pt" style="width:100%;height:120px"></textarea>
+<button onclick="enc()">Encrypt</button>
+<button onclick="dec()">Decrypt</button>
+<textarea id="out" style="width:100%;height:120px" readonly></textarea>
+<script>
+function prepareKey(k){
+  k = k.toUpperCase().replace(/[^A-Z]/g,'').replace(/J/g,'I');
+  let seen = new Set(), out='';
+  for(let ch of k) if(!seen.has(ch)){ seen.add(ch); out+=ch; }
+  for(let c=65;c<=90;c++){
+    let ch=String.fromCharCode(c); if(ch==='J') continue;
+    if(!seen.has(ch)){ seen.add(ch); out+=ch; }
+  }
+  return out.slice(0,25);
+}
+function findPos(table,ch){
+  let idx = table.indexOf(ch);
+  return {r: Math.floor(idx/5), c: idx%5};
+}
+function preprocessPlain(pt){
+  pt = pt.toUpperCase().replace(/[^A-Z]/g,'').replace(/J/g,'I');
+  let out='';
+  for(let i=0;i<pt.length;){
+    let a=pt[i], b = (i+1<pt.length?pt[i+1]:null);
+    if(b===null){ out+=a+'X'; i++; }
+    else if(a===b){ out+=a+'X'; i++; }
+    else { out+=a+b; i+=2; }
+  }
+  return out;
+}
+function playfairEncrypt(pt,key){
+  const table = prepareKey(key);
+  const pr = preprocessPlain(pt);
+  let ct='';
+  for(let i=0;i<pr.length;i+=2){
+    let a=pr[i], b=pr[i+1];
+    let pa=findPos(table,a), pb=findPos(table,b);
+    if(pa.r===pb.r){
+      ct += table[pa.r*5 + (pa.c+1)%5];
+      ct += table[pb.r*5 + (pb.c+1)%5];
+    } else if(pa.c===pb.c){
+      ct += table[((pa.r+1)%5)*5 + pa.c];
+      ct += table[((pb.r+1)%5)*5 + pb.c];
+    } else {
+      ct += table[pa.r*5 + pb.c];
+      ct += table[pb.r*5 + pa.c];
+    }
+  }
+  return ct;
+}
+function playfairDecrypt(ct,key){
+  const table = prepareKey(key);
+  let pt='';
+  for(let i=0;i<ct.length;i+=2){
+    let a=ct[i], b=ct[i+1];
+    let pa=findPos(table,a), pb=findPos(table,b);
+    if(pa.r===pb.r){
+      pt += table[pa.r*5 + (pa.c+4)%5];
+      pt += table[pb.r*5 + (pb.c+4)%5];
+    } else if(pa.c===pb.c){
+      pt += table[((pa.r+4)%5)*5 + pa.c];
+      pt += table[((pb.r+4)%5)*5 + pb.c];
+    } else {
+      pt += table[pa.r*5 + pb.c];
+      pt += table[pb.r*5 + pa.c];
+    }
+  }
+  return pt;
+}
+function enc(){ document.getElementById('out').value = playfairEncrypt(document.getElementById('pt').value, document.getElementById('key').value); }
+function dec(){ document.getElementById('out').value = playfairDecrypt(document.getElementById('pt').value, document.getElementById('key').value); }
+</script>
+</body></html>
