@@ -23,7 +23,7 @@ Brute-force: thử 26 giá trị t; đọc hoặc kiểm tra bằng tần suất
 Frequency analysis: đối với văn bản đủ dài, chữ có tần suất cao nhất (ví dụ 'E') ánh xạ tới một chữ cái → suy ra t.
 
 # C++ (đơn giản)
-
+# <img width="1920" height="1200" alt="Screenshot 2025-09-26 124611" src="https://github.com/user-attachments/assets/18827b18-4421-44e9-b853-cd13f97e1dd9" />
 # HTML+CSS+JS (giao diện nhỏ)
 # <img width="584" height="341" alt="image" src="https://github.com/user-attachments/assets/3ddfe242-e5d1-48ba-b1c1-08fe82c9bbda" />
 # 2. Affine cipher (Mã Affine)
