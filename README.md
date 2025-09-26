@@ -54,7 +54,7 @@ Frequency analysis: dùng tương tự Caesar nhưng vì có a, cần thử các
 Known plaintext: dễ suy a và b nếu biết một cặp plaintext–ciphertext.
 
 # C++ (encrypt/decrypt)
-
+# <img width="960" height="600" alt="image" src="https://github.com/user-attachments/assets/dd0d74af-231e-44e1-a584-6e7a93062ff7" />
 # HTML+JS (giao diện)
 # <img width="1145" height="532" alt="Screenshot 2025-09-25 224032" src="https://github.com/user-attachments/assets/4a852f37-48ea-4dbb-8a5b-eaea55a0c85f" />
 # 3. Permutation cipher (Transposition / Hoán vị)
@@ -90,7 +90,7 @@ Known-plaintext: nếu biết mẩu plaintext, dễ suy key.
 
 Đo lường “engram”: thử các n và sắp xếp cột sao cho bigram/trigram có độ khả dĩ cao khi đọc hàng.
 # C++ (columnar transposition - encrypt/decrypt)
-
+# <img width="960" height="600" alt="image" src="https://github.com/user-attachments/assets/0ed5abd9-acbb-4fc6-b5c7-c034abbba207" />
 # HTML+JS (đơn giản) 
 # <img width="583" height="270" alt="image" src="https://github.com/user-attachments/assets/2015f077-1a11-4467-ac65-8b026fb440f3" />
 # 4. Vigenère cipher
@@ -121,7 +121,7 @@ Brute-force: nếu m nhỏ, thử 26^m.
 Modern heuristic: hill-climbing với score ngôn ngữ.
 
 # C++ (encrypt/decrypt)
-
+# <img width="960" height="600" alt="image" src="https://github.com/user-attachments/assets/9a1a1ee4-88ab-4857-83af-18e3e65d4fc8" />
 # HTML+JS
 # <img width="581" height="242" alt="image" src="https://github.com/user-attachments/assets/5a5e3f9e-914b-44bc-81a8-c4810a116bea" />
 # 5. Playfair cipher
@@ -164,7 +164,7 @@ Known plaintext/crib: nếu biết một phần văn bản sẽ giúp suy ma tr�
 Brute-force: không khả thi nếu không giới hạn kiểu khoá.
 
 # C++ (Playfair basic)
-
+# <img width="960" height="600" alt="image" src="https://github.com/user-attachments/assets/710c4589-5ee3-40fa-b5f3-04ceda3adba5" />
 # HTML+JS (Playfair)
 # <img width="677" height="296" alt="image" src="https://github.com/user-attachments/assets/81ebd6f4-da66-4377-b039-095b0dae57ef" />
 
